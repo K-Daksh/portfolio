@@ -30,3 +30,15 @@
   background: #3b82f6 !important;
   border-radius: 5px;
 }
+
+* {
+  cursor: url("/cursor.svg") 4 4, auto !important;
+}
+*[style*="cursor: pointer"],
+button,
+a,
+input[type="submit"],
+input[type="button"],
+[role="button"] {
+  cursor: url("/cursorPointer.svg") 3.5 3.5, pointer !important;
+}
