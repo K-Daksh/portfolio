@@ -14,10 +14,8 @@ import {
 } from "./cursorUtils";
 import gsap from "gsap";
 import SmoothScroll from "./components/SmoothScroll";
-import MobileWarning from "./components/MobileWarning";
 
 function App() {
-  const [isMobile, setIsMobile] = useState(false);
   const handEmoji = useRef(null);
   const homeRef = useRef(null);
   const projectsRef = useRef(null);
@@ -73,26 +71,26 @@ function App() {
     return () => observer.disconnect();
   }, []);
 
-  useEffect(() => {
-    const checkMobile = () => {
-      setIsMobile(window.innerWidth < 800); // Consider anything less than 1024px as mobile
-    };
+  // useEffect(() => {
+  //   const checkMobile = () => {
+  //     setIsMobile(window.innerWidth < 800); // Consider anything less than 1024px as mobile
+  //   };
 
-    checkMobile();
-    window.addEventListener("resize", checkMobile);
+  //   checkMobile();
+  //   window.addEventListener("resize", checkMobile);
 
-    return () => window.removeEventListener("resize", checkMobile);
-  }, []);
+  //   return () => window.removeEventListener("resize", checkMobile);
+  // }, []);
 
-  if (isMobile) {
-    return <MobileWarning />;
-  }
+  // if (isMobile) {
+  //   return <MobileWarning />;
+  // }
 
   return (
     <>
       <div
         ref={dockRef}
-        className="fixed flex justify-center bottom-[2vw] w-full z-[9999] transition-all duration-300"
+        className="fixed flex justify-center bottom-[3vh] sm:bottom-[2vw]  w-full z-[9999] transition-all duration-300"
       >
         <div
           style={{
@@ -103,19 +101,19 @@ function App() {
         >
           <span
             onClick={() => scrollToSection(homeRef)}
-            className="text-[3vh] p-[1vh] m-[0.5vh] hover:text-blue-500 active:text-blue-700 cursor-pointer transition-colors"
+            className="text-[2vh.5] sm:text-[3vh] p-[1vh] m-[0.5vh] hover:text-blue-500 active:text-blue-700 cursor-pointer transition-colors"
           >
             HOME
           </span>
           <span
             onClick={() => scrollToSection(projectsRef)}
-            className="text-[3vh] p-[1vh] m-[0.5vh] hover:text-blue-500 active:text-blue-700 cursor-pointer transition-colors"
+            className="text-[2vh.5] sm:text-[3vh] p-[1vh] m-[0.5vh] hover:text-blue-500 active:text-blue-700 cursor-pointer transition-colors"
           >
             PROJECTS
           </span>
           <span
             onClick={() => scrollToSection(skillsRef)}
-            className="text-[3vh] p-[1vh] m-[0.5vh] hover:text-blue-500 active:text-blue-700 cursor-pointer transition-colors"
+            className="text-[2vh.5] sm:text-[3vh] p-[1vh] m-[0.5vh] hover:text-blue-500 active:text-blue-700 cursor-pointer transition-colors"
           >
             SKILLS
           </span>
@@ -123,7 +121,7 @@ function App() {
             target="_blank"
             href="https://drive.google.com/file/d/1IWjSyA9tl66X81qXuxQlt7Jr90AgnbJl/view?usp=sharing"
           >
-            <span className="text-[3vh] p-[1vh] m-[0.5vh] hover:text-blue-500 active:text-blue-700 cursor-pointer transition-colors">
+            <span className="text-[2vh.5] sm:text-[3vh] p-[1vh] m-[0.5vh] hover:text-blue-500 active:text-blue-700 cursor-pointer transition-colors">
               RESUME
             </span>
           </a>
@@ -136,18 +134,28 @@ function App() {
             ref={homeRef}
             className="h-screen w-screen flex items-start relative"
           >
-            <div className="h-[70%] flex flex-col justify-around items-start w-1/2 ml-[12vh] p-[2vh] mt-[10vh]">
+            <div className="sm:h-[70%] h-[90%] flex flex-col justify-around sm:items-start items-center sm:w-1/2 sm:ml-[12vh] p-[2vh] sm:mt-[10vh]">
               <div>
-                <span className="text-[7.5vh] font-semibold">Hello</span>
+                <span className="text-[6vh] sm:text-[7.5vh] font-semibold">
+                  Hello
+                </span>
 
                 <span
-                  className="text-[7.5vh] inline-block ml-[0.5vh]"
+                  className="text-[5vh] sm:text-[7.5vh] inline-block ml-[0.5vh]"
                   ref={handEmoji}
                 >
                   👋
                 </span>
               </div>
-              <div className="text-[5vh] font-thin">
+              <img
+                title="Profile Picture"
+                onPointerEnter={() => enableGlobalCustomCursorHappy()}
+                onPointerLeave={() => enableGlobalCustomCursorBlack()}
+                className="sm:hidden w-[25vh] rounded-full"
+                src={ProfilePic}
+                alt="profilePic"
+              />
+              <div className="text-center text-[3.5vh] sm:text-left sm:text-[4.5vh] font-thin">
                 <span>I'm </span>
                 <span className="font-bold text-blue-600">Daksh Kitukale</span>
                 <span>
@@ -155,7 +163,7 @@ function App() {
                   problems and creating cool stuff.
                 </span>
               </div>
-              <div className="flex flex-row justify-start items-center w-full gap-[2vh]">
+              <div className="flex flex-row justify-center sm:justify-start items-center w-full gap-[2vh]">
                 <a
                   target="_blank"
                   href="https://www.linkedin.com/in/daksh-kitukale-824843235/"
@@ -192,18 +200,20 @@ function App() {
                   />
                 </a>
               </div>
-              <div>
-                <span className="text-[2.4vh]">Get in touch </span>
+              <div className="">
+                <span className="text-[2vh] sm:text-[2.4vh]">
+                  Get in touch{" "}
+                </span>
                 <a
                   href="mailto:dakshkitukale03@gmail.com"
                   target="_blank"
-                  className=" font-thin text-[3.6vh] px-[0.8vh] hover:text-blue-500 active:text-blue-700 cursor-pointer transition-colors"
+                  className=" font-thin sm:text-[3.6vh] text-[2vh] px-[0.8vh] hover:text-blue-500 active:text-blue-700 cursor-pointer transition-colors"
                 >
                   dakshkitukale03@gmail.com
                 </a>
               </div>
             </div>
-            <div className="flex justify-center items-center w-1/2 h-full">
+            <div className="hidden sm:flex justify-center items-center w-1/2 h-full">
               <img
                 title="Profile Picture"
                 onPointerEnter={() => enableGlobalCustomCursorHappy()}
@@ -220,65 +230,66 @@ function App() {
             onPointerEnter={() => enableGlobalCustomCursorYellow()}
             onPointerLeave={() => enableGlobalCustomCursorBlack()}
           >
-            <h1 className="text-[7vh] font-semibold text-blue-500 text-center mt-[10vh] ">
+            <h1 className="sm:text-[7vh] text-[6vh] font-semibold text-black sm:text-blue-500 text-center mt-[10vh]">
               SKILLS
             </h1>
-            <div className="ml-[5vh]">
-              <div className="h-full w-screen mt-[5vh] mb-[10vh]">
-                <div className="flex flex-row justify-start items-center py-[1vh] pl-[3vh]">
-                  <div className="w-1/4 text-[5vh] text-blue-500">
+            <div className="sm:ml-[5vh]">
+              <div className="h-full w-screen sm:mt-[5vh] mb-[10vh]">
+                <div className="flex flex-col sm:flex-row justify-center sm:justify-start items-center py-[3vh] sm:py-[1vh] sm:pl-[3vh]">
+                  <div className="sm:w-1/4 text-[4vh] sm:text-[5vh] text-blue-500">
                     Languages
                   </div>
-                  <div className="w-1/2 text-[3vh] font-thin">
+                  <div className="sm:w-1/2 text-[3vh] font-thin text-center sm:text-left">
                     C, C++, Python, JavaScript, Golang, TypeScript
                   </div>
                 </div>
-                <div className="flex flex-row justify-start items-center py-[1vh] pl-[3vh]">
-                  <div className="w-1/4 text-[5vh] text-blue-500">
+                <div className="flex flex-col sm:flex-row justify-center sm:justify-start items-center py-[3vh] sm:py-[1vh] sm:pl-[3vh]">
+                  <div className="sm:w-1/4 text-[4vh] sm:text-[5vh] text-blue-500">
                     Frameworks/Libs
                   </div>
-                  <div className="w-1/2 text-[3vh] font-thin">
+                  <div className="sm:w-1/2 text-[3vh] font-thin text-center sm:text-left">
                     React.js, Next.js, Node.js, Express.js, TailwindCSS,
                     Bootstrap, Flask, EJS, Hono
                   </div>
                 </div>
-                <div className="flex flex-row justify-start items-center py-[1vh] pl-[3vh]">
-                  <div className="w-1/4 text-[5vh] text-blue-500">
+                <div className="flex flex-col sm:flex-row justify-center sm:justify-start items-center py-[3vh] sm:py-[1vh] sm:pl-[3vh]">
+                  <div className="sm:w-1/4 text-[4vh] sm:text-[5vh] text-blue-500">
                     Databases
                   </div>
-                  <div className="w-1/2 text-[3vh] font-thin">
+                  <div className="sm:w-1/2 text-[3vh] font-thin text-center sm:text-left">
                     MongoDb, MySQL, Firebase, Redis
                   </div>
                 </div>
-                <div className="flex flex-row justify-start items-center py-[1vh] pl-[3vh]">
-                  <div className="w-1/4 text-[5vh] text-blue-500">Tools</div>
-                  <div className="w-1/2 text-[3vh] font-thin">
+                <div className="flex flex-col sm:flex-row justify-center sm:justify-start items-center py-[3vh] sm:py-[1vh] sm:pl-[3vh]">
+                  <div className="sm:w-1/4 text-[4vh] sm:text-[5vh] text-blue-500">
+                    Tools
+                  </div>
+                  <div className="sm:w-1/2 text-[3vh] font-thin text-center sm:text-left">
                     Git, Postman, Figma, GCP, RabbitMQ
                   </div>
                 </div>
               </div>
             </div>
           </div>
-
           <div className="w-full h-[0.3vh] bg-blue-200"></div>
           {/* Project section */}
           <div ref={projectsRef} className="h-full w-screen">
-            <h1 className="text-[7vh] font-semibold text-blue-500 text-center mt-[10vh] ">
+            <h1 className="text-[5vh]  sm:text-[7vh] font-semibold text-black sm:text-blue-500 text-center mt-[10vh] ">
               PROJECTS
             </h1>
             <div
               onPointerEnter={() => enableGlobalCustomCursorFunk()}
               onPointerLeave={() => enableGlobalCustomCursorBlack()}
-              className="flex flex-col justify-start items-start w-full ml-[5vh]"
+              className="flex flex-col justify-start items-start w-full sm:ml-[5vh] sm:px-[0vh] px-[2vh]"
             >
-              <div className="mt-[10vh] w-5/6">
-                <div className="flex flex-row justify-start items-center h-full w-full">
+              <div className="mt-[10vh] sm:w-5/6">
+                <div className="flex flex-col sm:flex-row justify-start items-center h-full w-full">
                   <img
                     className="w-[60vh] h-auto mx-[3vh]"
                     src={Schedulo}
                     alt=""
                   />
-                  <div className="pl-[1vh] w-full h-full flex flex-col items-start justify-between">
+                  <div className="pl-[1vh] w-full h-full flex flex-col items-start justify-between pt-[3vh] sm:pt-[0vh]">
                     <div>
                       <h2 className="text-[5vh] text-blue-500">Schedulo</h2>
                       <span className="text-[2.5vh]  w-full">
@@ -318,18 +329,27 @@ function App() {
                 </div>
               </div>
 
-              <div className="mt-[8vh] w-5/6 h-full">
-                <div className="flex flex-row justify-start items-center h-full w-full">
-                  <img className="w-[19vh] ml-[3vh]" src={uber1} alt="uber1" />
-                  <img
-                    className="w-[19vh] mx-[1.5vh]"
-                    src={uber2}
-                    alt="uber2"
-                  />
+              <div className="mt-[8vh] sm:w-5/6 h-full">
+                <div className="flex flex-col sm:flex-row justify-start items-center h-full w-full">
+                  <div className="flex flex-row justify-center items-center h-full sm:w-[122vh] pt-[10vh] sm:pt-[0vh]">
+                    <img
+                      className="w-[19vh] ml-[3vh]"
+                      src={uber1}
+                      alt="uber1"
+                    />
+                    <img
+                      className="w-[19vh] mx-[1.5vh]"
+                      src={uber2}
+                      alt="uber2"
+                    />
 
-                  <img className="w-[19vh] mr-[3vh]" src={uber3} alt="uber3" />
-
-                  <div className="pl-[1vh] w-[100%]  h-full flex flex-col items-start justify-between">
+                    <img
+                      className="w-[19vh] mr-[3vh]"
+                      src={uber3}
+                      alt="uber3"
+                    />
+                  </div>
+                  <div className="pl-[1vh] w-[100%]  h-full flex flex-col items-start justify-between pt-[3vh] sm:pt-[0vh]">
                     <div>
                       <h2 className="text-[5vh] text-blue-500">Uber Clone</h2>
                       <span className="text-[2.5vh]  w-full">
@@ -369,14 +389,14 @@ function App() {
                 </div>
               </div>
 
-              <div className="my-[8vh] mb-[18vh] w-5/6">
-                <div className="flex flex-row justify-start items-center h-full w-full">
+              <div className="my-[8vh] mb-[18vh] sm:w-5/6">
+                <div className="flex flex-col sm:flex-row justify-start items-center h-full w-full pt-[10vh] sm:pt-[0vh]">
                   <img
                     className="w-[60vh] h-auto mx-[3vh]"
                     src={Altcode}
                     alt=""
                   />
-                  <div className="pl-[1vh] w-full h-full flex flex-col items-start justify-between">
+                  <div className="pl-[1vh] w-full h-full flex flex-col items-start justify-between pt-[3vh] sm:pt-[0vh] ">
                     <div>
                       <h2 className="text-[5vh] text-blue-500">AltCode</h2>
                       <span className="text-[2.5vh]  w-full">
@@ -427,7 +447,7 @@ function App() {
                   Daksh Kitukale
                 </span>
               </div>
-              <div className="text-[2.5vh] font-thin">
+              <div className="text-[1.5vh] sm:text-[2.5vh] font-thin">
                 Please feel free to react out. I am always open to new
                 opportunities
               </div>
