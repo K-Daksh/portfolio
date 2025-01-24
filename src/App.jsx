@@ -75,7 +75,7 @@ function App() {
 
   useEffect(() => {
     const checkMobile = () => {
-      setIsMobile(window.innerWidth < 1024); // Consider anything less than 1024px as mobile
+      setIsMobile(window.innerWidth < 800); // Consider anything less than 1024px as mobile
     };
 
     checkMobile();
