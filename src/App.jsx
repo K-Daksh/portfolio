@@ -1,17 +1,17 @@
 import { useRef, useEffect, useState } from "react";
-import ProfilePic from "./assets/PF2.jpg";
-import Schedulo from "./assets/schedulo.png";
-import uber1 from "./assets/uber1.png";
-import uber2 from "./assets/uber2.png";
-import Altcode from "./assets/altcode.png";
-import uber3 from "./assets/uber3.png";
+import ProfilePic from "./../public/PF2.jpg";
+import Schedulo from "./../public/schedulo.png";
+import uber1 from "./../public/uber1.png";
+import uber2 from "./../public/uber2.png";
+import Altcode from "./../public/altcode.png";
+import uber3 from "./../public/uber3.png";
 import {
   enableGlobalCustomCursorYellow,
   enableGlobalCustomCursorBlue,
   enableGlobalCustomCursorBlack,
   enableGlobalCustomCursorFunk,
   enableGlobalCustomCursorHappy,
-} from "./../public/cursorUtils";
+} from "../public/cursorUtils";
 import gsap from "gsap";
 import SmoothScroll from "./components/SmoothScroll";
 import MobileWarning from "./components/MobileWarning";
