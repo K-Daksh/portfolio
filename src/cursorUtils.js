@@ -1,20 +1,70 @@
+export function enableGlobalCustomCursorBlack() {
+  const styleElement = document.createElement('style');
+  styleElement.textContent = `
+* {
+  cursor: url("/cursor.svg") 4 4, auto !important;
+}
+*[style*="cursor: pointer"],
+button,
+a,
+input[type="submit"],
+input[type="button"],
+[role="button"] {
+  cursor: url("/cursorPointer.svg") 3.5 3.5, pointer !important;
+}`;
+  document.head.appendChild(styleElement);
+}
 
-export const enableGlobalCustomCursorYellow = () => {
-    document.body.style.cursor = "url('/path/to/yellow-cursor.png'), auto";
-};
+export function enableGlobalCustomCursorBlue() {
+  const styleElement = document.createElement('style');
+  styleElement.textContent = `
+* {
+  cursor: url("/cursorBlue.svg") 4 4, auto !important;
+}
+*[style*="cursor: pointer"],
+button,
+a,
+input[type="submit"],
+input[type="button"],
+[role="button"] {
+  cursor: url("/cursorPointerBlue.svg") 3.5 3.5, pointer !important;
+}`;
+  document.head.appendChild(styleElement);
+}
 
-export const enableGlobalCustomCursorBlue = () => {
-    document.body.style.cursor = "url('/path/to/blue-cursor.png'), auto";
-};
+export function enableGlobalCustomCursorYellow() {
+  const styleElement = document.createElement('style');
+  styleElement.textContent = `
+* {
+  cursor: url("/cursorYellow.svg") 4 4, auto !important;
+}
+*[style*="cursor: pointer"],
+button,
+a,
+input[type="submit"],
+input[type="button"],
+[role="button"] {
+  cursor: url("/cursorPointerYellow.svg") 3.5 3.5, pointer !important;
+}`;
+  document.head.appendChild(styleElement);
+}
 
-export const enableGlobalCustomCursorBlack = () => {
-    document.body.style.cursor = "url('/path/to/black-cursor.png'), auto";
-};
+export function enableGlobalCustomCursorFunk() {
+  const styleElement = document.createElement('style');
+  styleElement.textContent = `
+* {
+  cursor: url("/cursorFunk.svg") 4 4, auto !important;
+}
+`;
+  document.head.appendChild(styleElement);
+}
 
-export const enableGlobalCustomCursorFunk = () => {
-    document.body.style.cursor = "url('/path/to/funk-cursor.png'), auto";
-};
-
-export const enableGlobalCustomCursorHappy = () => {
-    document.body.style.cursor = "url('/path/to/happy-cursor.png'), auto";
-};
+export function enableGlobalCustomCursorHappy() {
+  const styleElement = document.createElement('style');
+  styleElement.textContent = `
+* {
+  cursor: url("/cursorHappy.svg") 4 4, auto !important;
+}
+`;
+  document.head.appendChild(styleElement);
+}
