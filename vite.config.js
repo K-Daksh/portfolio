@@ -7,7 +7,7 @@ export default defineConfig({
   plugins: [tailwindcss(), react()],
   build: {
     rollupOptions: {
-      external: [], // Add any necessary external modules here
+      external: [], // Ensure no external modules are incorrectly listed here
     },
   },
 })
