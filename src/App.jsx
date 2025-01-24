@@ -1,10 +1,10 @@
 import { useRef, useEffect, useState } from "react";
-import ProfilePic from "./../public/PF2.jpg";
-import Schedulo from "./../public/schedulo.png";
-import uber1 from "./../public/uber1.png";
-import uber2 from "./../public/uber2.png";
-import Altcode from "./../public/altcode.png";
-import uber3 from "./../public/uber3.png";
+import ProfilePic from "/PF2.jpg";
+import Schedulo from "/schedulo.png";
+import uber1 from "/uber1.png";
+import uber2 from "/uber2.png";
+import Altcode from "/altcode.png";
+import uber3 from "/uber3.png";
 import {
   enableGlobalCustomCursorYellow,
   enableGlobalCustomCursorBlue,
