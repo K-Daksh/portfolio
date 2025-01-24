@@ -3,7 +3,7 @@ import ProfilePic from "./assets/PF2.jpg";
 import Schedulo from "./assets/schedulo.png";
 import uber1 from "./assets/uber1.png";
 import uber2 from "./assets/uber2.png";
-import Altcode from "./assets/altcode.png";
+import Altcode from "./assets/Altcode.png";
 import uber3 from "./assets/uber3.png";
 import {
   enableGlobalCustomCursorYellow,
